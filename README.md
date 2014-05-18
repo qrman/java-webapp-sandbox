@@ -6,8 +6,8 @@ project for rapid web application development
 
 Todo:
 
-* JAX-RS
-* Guice
+* ~~JAX-RS~~
+* ~~Guice~~
 * jOOQ
 * Liquibase
 * Websocket
