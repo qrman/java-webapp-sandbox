@@ -4,3 +4,5 @@ webapp/target/*
 # Package Files #
 *.jar
 *.war
+/sanbox-db/target/
+/db/target/

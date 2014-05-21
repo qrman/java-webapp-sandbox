@@ -1,4 +1,4 @@
-package pl.urman;
+package pl.urman.sandbox;
 
 import com.google.inject.Provider;
 import javax.inject.Inject;

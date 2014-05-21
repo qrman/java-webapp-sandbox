@@ -7,11 +7,9 @@
     <artifactId>sandbox</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>pl.urman</groupId>
-  <artifactId>webapp</artifactId>
+  <artifactId>sandbox-webapp</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>webapp</name>
 
   <properties>
     <resteasy.version>3.0.8.Final</resteasy.version>
@@ -58,7 +56,7 @@
 
 
   <build>
-    <finalName>webapp</finalName>
+    <finalName>sandbox-webapp</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

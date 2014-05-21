@@ -1,4 +1,4 @@
-package pl.urman.model.user;
+package pl.urman.sandbox.model.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

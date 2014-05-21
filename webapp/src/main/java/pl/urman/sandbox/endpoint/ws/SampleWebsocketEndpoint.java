@@ -1,4 +1,4 @@
-package pl.urman.endpoint.ws;
+package pl.urman.sandbox.endpoint.ws;
 
 import java.io.IOException;
 import javax.websocket.EndpointConfig;

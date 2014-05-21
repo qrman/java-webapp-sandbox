@@ -12,6 +12,7 @@
   </properties>
 
   <modules>
+    <module>db</module>
     <module>webapp</module>
   </modules>
 

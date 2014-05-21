@@ -1,12 +1,13 @@
-package pl.urman.endpoint;
+package pl.urman.sandbox.endpoint;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import pl.urman.model.user.User;
-import pl.urman.model.user.UserFinder;
+
+import pl.urman.sandbox.model.user.User;
+import pl.urman.sandbox.model.user.UserFinder;
 
 @Path("user")
 public class UserEndpoint {

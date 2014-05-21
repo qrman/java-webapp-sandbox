@@ -1,8 +1,9 @@
-package pl.urman;
+package pl.urman.sandbox;
 
 import com.google.inject.servlet.ServletModule;
-import pl.urman.endpoint.ApiEntranceEndpoint;
-import pl.urman.endpoint.UserEndpoint;
+
+import pl.urman.sandbox.endpoint.ApiEntranceEndpoint;
+import pl.urman.sandbox.endpoint.UserEndpoint;
 
 public class WebAppModule extends ServletModule {
 

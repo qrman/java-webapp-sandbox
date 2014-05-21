@@ -1,14 +1,16 @@
-package pl.urman.endpoint;
+package pl.urman.sandbox.endpoint;
 
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import pl.urman.ApiUriBuilder;
+
+import pl.urman.sandbox.ApiUriBuilder;
 
 @Path("")
 public class ApiEntranceEndpoint {
