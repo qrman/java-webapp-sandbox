@@ -1,0 +1,2 @@
+initdb:
+	scripts/initdb.sh
