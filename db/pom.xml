@@ -10,11 +10,20 @@
   <packaging>jar</packaging>
 
   <dependencies>
+    <!-- Postgres -->
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>9.3-1101-jdbc41</version>
     </dependency>
+    <!-- DB connection pooling -->
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>1.3.8</version>
+      <scope>compile</scope>
+    </dependency>
+    <!-- jOOQ -->
     <dependency>
       <groupId>org.jooq</groupId>
       <artifactId>jooq</artifactId>

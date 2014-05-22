@@ -19,8 +19,8 @@ public class UserFinder {
         return jooq.fetch(USER).map((UserRecord record) -> {
             return User.builder()
                 .id(record.getId())
-                .firstName(record.getFirstname())
-                .secondName(record.getSecondname())
+                .firstName(record.getFirstName())
+                .secondName(record.getSecondName())
                 .build();
         });
     }

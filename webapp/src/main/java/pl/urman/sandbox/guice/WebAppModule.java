@@ -1,9 +1,10 @@
-package pl.urman.sandbox;
+package pl.urman.sandbox.guice;
 
-import pl.urman.sandbox.db.DbModule;
+import pl.urman.sandbox.db.guice.DbModule;
 
 import com.google.inject.servlet.ServletModule;
 
+import pl.urman.sandbox.ApiUriBuilder;
 import pl.urman.sandbox.endpoint.ApiEntranceEndpoint;
 import pl.urman.sandbox.endpoint.UserEndpoint;
 
