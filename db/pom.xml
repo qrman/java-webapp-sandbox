@@ -15,11 +15,17 @@
       <artifactId>postgresql</artifactId>
       <version>9.3-1101-jdbc41</version>
     </dependency>
+    <dependency>
+      <groupId>org.jooq</groupId>
+      <artifactId>jooq</artifactId>
+      <version>3.3.0</version>
+    </dependency>
   </dependencies>
 
 
   <build>
     <plugins>
+      <!-- Liquibase plugin: database update -->
       <plugin>
         <groupId>org.liquibase</groupId>
         <artifactId>liquibase-maven-plugin</artifactId>
@@ -40,6 +46,62 @@
           </execution>
         </executions>
       </plugin>
+
+      <!-- jOOQ plugin: code generation -->
+      <plugin>
+
+        <!-- Specify the maven code generator plugin -->
+        <groupId>org.jooq</groupId>
+        <artifactId>jooq-codegen-maven</artifactId>
+        <version>3.3.2</version>
+
+        <!-- The plugin should hook into the generate goal -->
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+
+        <!-- Manage the plugin's dependency. In this example, we'll use a PostgreSQL database -->
+        <dependencies>
+          <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.3-1101-jdbc41</version>
+          </dependency>
+        </dependencies>
+
+        <!-- Specify the plugin configuration.
+        The configuration format is the same as for the standalone code generator -->
+        <configuration>
+
+          <!-- JDBC connection parameters -->
+          <jdbc>
+            <driver>org.postgresql.Driver</driver>
+            <url>jdbc:postgresql://localhost:5432/sandbox</url>
+            <user>sandbox</user>
+            <password>sandbox</password>
+          </jdbc>
+
+          <!-- Generator parameters -->
+          <generator>
+            <name>org.jooq.util.DefaultGenerator</name>
+            <database>
+              <name>org.jooq.util.postgres.PostgresDatabase</name>
+              <includes>.*</includes>
+              <excludes></excludes>
+              <inputSchema>public</inputSchema>
+            </database>
+            <target>
+              <packageName>org.jooq.util.maven.example</packageName>
+              <directory>target/generated-sources/pl.urman.sandbox.jooq</directory>
+            </target>
+          </generator>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 </project>
