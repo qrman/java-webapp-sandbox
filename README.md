@@ -8,9 +8,9 @@ Todo:
 
 * ~~JAX-RS~~
 * ~~Guice~~
-* jOOQ
-* Liquibase
-* Websocket
+* ~~jOOQ~~
+* ~~Liquibase~~
+* ~~Websocket~~
 * Angular web app
 * authentication
 * authorization
