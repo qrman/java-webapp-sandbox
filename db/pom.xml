@@ -18,7 +18,17 @@
     <dependency>
       <groupId>org.jooq</groupId>
       <artifactId>jooq</artifactId>
-      <version>3.3.0</version>
+      <version>3.3.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jooq</groupId>
+      <artifactId>jooq-meta</artifactId>
+      <version>3.3.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jooq</groupId>
+      <artifactId>jooq-codegen</artifactId>
+      <version>3.3.2</version>
     </dependency>
   </dependencies>
 
@@ -58,6 +68,7 @@
         <!-- The plugin should hook into the generate goal -->
         <executions>
           <execution>
+            <phase>process-resources</phase>
             <goals>
               <goal>generate</goal>
             </goals>
@@ -87,6 +98,12 @@
 
           <!-- Generator parameters -->
           <generator>
+
+            <!-- jOOQ will generate DAO's classes -->
+            <generate>
+              <daos>true</daos>
+            </generate>
+
             <name>org.jooq.util.DefaultGenerator</name>
             <database>
               <name>org.jooq.util.postgres.PostgresDatabase</name>
@@ -95,8 +112,8 @@
               <inputSchema>public</inputSchema>
             </database>
             <target>
-              <packageName>org.jooq.util.maven.example</packageName>
-              <directory>target/generated-sources/pl.urman.sandbox.jooq</directory>
+              <packageName>pl.urman.sandbox.db</packageName>
+              <directory>target/generated-sources/</directory>
             </target>
           </generator>
         </configuration>

@@ -1,5 +1,7 @@
 package pl.urman.sandbox.endpoint;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -17,7 +19,7 @@ public class UserEndpoint {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public User fetchOne() {
-        return userFinder.fetchOne();
+    public List<User> fetchAll() {
+        return userFinder.fetchAll();
     }
 }

@@ -7,7 +7,7 @@
 
   <context-param>
     <param-name>resteasy.guice.modules</param-name>
-    <param-value>pl.urman.WebAppModule</param-value>
+    <param-value>pl.urman.sandbox.WebAppModule</param-value>
   </context-param>
   <context-param>
     <param-name>resteasy.servlet.mapping.prefix</param-name>
