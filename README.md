@@ -16,3 +16,4 @@ Todo:
 * authorization
 * integration tests
 * e2e tests (cucumber stories?)
+* Properties management
