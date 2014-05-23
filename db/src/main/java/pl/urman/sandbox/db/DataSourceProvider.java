@@ -18,8 +18,6 @@ public class DataSourceProvider implements Provider<DataSource> {
         props.setProperty("dataSource.databaseName", "sandbox");
 
         HikariConfig config = new HikariConfig(props);
-        HikariDataSource ds = new HikariDataSource(config);
-        return ds;
+        return new HikariDataSource(config);
     }
-
 }

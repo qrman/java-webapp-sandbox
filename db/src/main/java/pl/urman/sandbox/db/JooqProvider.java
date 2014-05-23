@@ -1,7 +1,5 @@
 package pl.urman.sandbox.db;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
@@ -22,12 +20,8 @@ public class JooqProvider implements Provider<DSLContext> {
         this.dataSource = dataSource;
     }
 
+    @Override
     public DSLContext get() {
-        try {
-            Connection conn = dataSource.getConnection();
-            return DSL.using(conn, SQLDialect.POSTGRES);
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
-        }
+        return DSL.using(dataSource, SQLDialect.POSTGRES);
     }
 }
