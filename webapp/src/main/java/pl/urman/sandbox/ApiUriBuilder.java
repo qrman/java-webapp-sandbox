@@ -13,7 +13,7 @@ public class ApiUriBuilder {
 
     public UriBuilder get() {
         String host = requestProvider.get().getHeader("host");
-        return UriBuilder.fromUri("http://" + host).path("webapp").path("api");
+        return UriBuilder.fromUri("http://" + host).path("sandbox").path("api");
     }
 
 }
