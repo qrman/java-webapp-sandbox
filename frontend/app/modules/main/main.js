@@ -7,22 +7,26 @@ angular.module('sandbox-app')
       return apiEntrance('user').then(function(uri) {
         return $http.get(uri);
       });
+    },
+    add: function(user) {
+      return apiEntrance('user').then(function(uri) {
+        return $http.post(uri, user);
+      });
     }
   };
 })
 .controller('MainCtrl', function($scope, userRepo) {
   $scope.users = [];
+  $scope.user = {};
 
   userRepo.fetchAll().then(function(response) {
     $scope.users = response.data;
   });
 
 
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Karma',
-    'Java',
-    'Vert.x'
-  ];
+  $scope.addUser = function() {
+    userRepo.add($scope.user).then(function() {
+      $scope.user = {};
+    });
+  };
 });
