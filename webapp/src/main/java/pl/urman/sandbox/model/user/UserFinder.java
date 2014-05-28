@@ -16,7 +16,10 @@ public class UserFinder {
     DSLContext jooq;
 
     public List<User> fetchAll() {
-        return jooq.fetch(USER).map((UserRecord record) -> {
+        return jooq.selectFrom(USER)
+            .orderBy(USER.SECOND_NAME.asc(), USER.FIRST_NAME.asc())
+            .fetch()
+            .map((UserRecord record) -> {
             return User.builder()
                 .id(record.getId())
                 .firstName(record.getFirstName())

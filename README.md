@@ -11,7 +11,8 @@ Todo:
 * ~~jOOQ~~
 * ~~Liquibase~~
 * ~~Websocket~~
-* Angular web app
+* Websocket -> Guice DI 
+* ~~Angular web app~~
 * authentication
 * authorization
 * integration tests
