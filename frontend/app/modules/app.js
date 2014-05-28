@@ -9,8 +9,8 @@ angular.module('sandbox-app', [
 .config(function($routeProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: 'modules/main/main.html',
-    controller: 'MainCtrl'
+    templateUrl: 'modules/users/users.html',
+    controller: 'UsersCtrl'
   })
   .otherwise({
     redirectTo: '/'

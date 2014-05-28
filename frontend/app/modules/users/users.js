@@ -15,7 +15,7 @@ angular.module('sandbox-app')
     }
   };
 })
-.controller('MainCtrl', function($scope, userRepo) {
+.controller('UsersCtrl', function($scope, userRepo) {
   $scope.users = [];
   $scope.user = {};
 
