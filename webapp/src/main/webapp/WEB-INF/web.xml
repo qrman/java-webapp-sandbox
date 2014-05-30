@@ -16,7 +16,7 @@
 
   <listener>
     <listener-class>
-      pl.urman.sandbox.guice.MyServletContextListener
+      pl.urman.sandbox.guice.SandboxServletContextListener
     </listener-class>
   </listener>
 
