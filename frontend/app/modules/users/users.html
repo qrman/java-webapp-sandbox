@@ -1,5 +1,8 @@
-<div class="row" ng-show="newUserMessage">
-  <button class="btn" ng-click="fetchUsers()">Reload user list</button>
+<div class="row" ng-show="newUsers">
+  <span>Number of new users: {{newUsers}}</span>
+  <span>
+    <button class="btn" ng-click="fetchUsers()">Reload list</button>
+  </span>
   <hr/>
 </div>
 <div class="row">

@@ -28,4 +28,10 @@ public class WebAppModule extends ServletModule {
     public String getApiPath() {
         return "sandbox/api";
     }
+
+    @Provides
+    @Named("wsPath")
+    public String getWSPath() {
+        return "sandbox/ws";
+    }
 }

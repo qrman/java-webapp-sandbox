@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import pl.urman.sandbox.ApiUriBuilder;
+import pl.urman.sandbox.WSUriBuilder;
 
 @Path("")
 public class ApiEntranceEndpoint {
@@ -18,12 +19,16 @@ public class ApiEntranceEndpoint {
     @Inject
     private ApiUriBuilder uriBuilder;
 
+    @Inject
+    private WSUriBuilder wsUriBuilder;
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Map<String, URI> entrance() {
         Map<String, URI> apiMap = new HashMap<>();
 
         apiMap.put("user", uriBuilder.get().path(UserEndpoint.class).build());
+        apiMap.put("user-notify", wsUriBuilder.get().path("user-notify").build());
 
         return apiMap;
     }

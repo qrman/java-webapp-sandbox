@@ -16,12 +16,14 @@ angular.module('sandbox-app')
   };
 })
 
-.factory('changeNotifier', function() {
-  var ws = new WebSocket('ws://localhost:8080/sandbox/user-notify');
-  var onMessage = {};
-  ws.onmessage = function(evt) {
-    onMessage();
-  };
+.factory('changeNotifier', function(apiEntrance) {
+  var ws, onMessage = {};
+  apiEntrance('user-notify').then(function(wsResource) {
+    ws = new WebSocket(wsResource);
+    ws.onmessage = function(evt) {
+      onMessage();
+    };
+  });
 
   return {
     notify: function() {
@@ -36,10 +38,10 @@ angular.module('sandbox-app')
 .controller('UsersCtrl', function($scope, userRepo, changeNotifier) {
   $scope.users = [];
   $scope.user = {};
-  $scope.newUserMessage = false;
+  $scope.newUsers = 0;
 
   changeNotifier.onChange(function() {
-    $scope.newUserMessage = true;
+    $scope.newUsers++;
     $scope.$apply();
   });
 
@@ -54,9 +56,9 @@ angular.module('sandbox-app')
   $scope.fetchUsers = function() {
     userRepo.fetchAll().then(function(response) {
       $scope.users = response.data;
-      $scope.newUserMessage = false;
+      $scope.newUsers = 0;
     });
   };
-
+  
   $scope.fetchUsers();
 });

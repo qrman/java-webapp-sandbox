@@ -6,7 +6,7 @@ import javax.websocket.OnMessage;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-@ServerEndpoint(value = "/user-notify")
+@ServerEndpoint(value = "/ws/user-notify")
 public class SampleWebsocketEndpoint {
 
     @OnMessage
