@@ -16,7 +16,7 @@
 
   <listener>
     <listener-class>
-      org.jboss.resteasy.plugins.guice.GuiceResteasyBootstrapServletContextListener
+      pl.urman.sandbox.guice.MyServletContextListener
     </listener-class>
   </listener>
 
