@@ -25,19 +25,47 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <h3 class="text-muted">Sandbox-App</h3>
+    <div class="container" ng-controller="AuthCtrl">
+
+      <div ng-show="displayLoginForm">
+        <form class="form-horizontal" role="form">
+          <div class="row">
+            <div class="form-group">
+              <label for="login" class="col-sm-2 control-label">Login</label>
+              <div class="col-sm-10">
+                <input type="text" ng-model="username" id="username" class="form-control" placeholder="username">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-10">
+                <input type="password" ng-model="password" class="form-control" id="password" placeholder="Password">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <button class="btn btn-default" ng-click="login()">Login</button>
+            </div>
+          </div>
+        </form>
+
       </div>
-      <div class="jumbotron">
-        <p class="lead">
-          <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-        </p>
-        <p><a class="btn btn-lg btn-success" ng-href="#">Login, please!</a></p>
-      </div>
-      <div ng-view></div>
-      <div class="footer">
-        <p>Angular frontend sample app</p>
+
+      <div ng-show="!displayLoginForm">
+        <div class="header">
+          <h3 class="text-muted">Sandbox-App</h3>
+        </div>
+        <div class="jumbotron">
+          <p class="lead">
+            <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+          </p>
+          <p><a class="btn btn-lg btn-success" ng-href="#">Login, please!</a></p>
+        </div>
+        <div ng-view></div>
+        <div class="footer">
+          <p>Angular frontend sample app</p>
+        </div>
       </div>
     </div>
 
@@ -52,11 +80,13 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="modules/app.js"></script>
+    <script src="modules/auth/auth.js"></script>
     <script src="modules/users/users.js"></script>
     <!-- endbuild -->
   </body>

@@ -27,6 +27,7 @@ public class ApiEntranceEndpoint {
     public Map<String, URI> entrance() {
         Map<String, URI> apiMap = new HashMap<>();
 
+        apiMap.put("auth", uriBuilder.get().path(AuthEndpoint.class).build());
         apiMap.put("user", uriBuilder.get().path(UserEndpoint.class).build());
         apiMap.put("user-notify", wsUriBuilder.get().path("user-notify").build());
 

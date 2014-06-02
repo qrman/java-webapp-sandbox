@@ -2,7 +2,9 @@
 
 angular.module('sandbox-app', [
   'ngRoute',
-  'sandbox-api-entrance'
+  'http-auth-interceptor',
+  'sandbox-api-entrance',
+  'sandbox-auth'
 
 ])
 .constant('apiURI', 'sandbox/api')

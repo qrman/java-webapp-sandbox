@@ -12,6 +12,11 @@ angular.module('sandbox-app')
       return apiEntrance('user').then(function(uri) {
         return $http.post(uri, user);
       });
+    },
+    clear: function() {
+      return apiEntrance('user').then(function(uri) {
+        return $http.delete(uri);
+      });
     }
   };
 })
@@ -53,12 +58,18 @@ angular.module('sandbox-app')
     });
   };
 
+  $scope.clear = function() {
+    userRepo.clear().then(function() {
+      $scope.users = [];
+    });
+  }
+
   $scope.fetchUsers = function() {
     userRepo.fetchAll().then(function(response) {
       $scope.users = response.data;
       $scope.newUsers = 0;
     });
   };
-  
+
   $scope.fetchUsers();
 });

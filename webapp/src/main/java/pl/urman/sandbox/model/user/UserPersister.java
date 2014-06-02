@@ -24,4 +24,8 @@ public class UserPersister {
         userRecord.store();
         return Response.ok().build();
     }
+
+    public void deleteAll() {
+        jooq.delete(USER).execute();
+    }
 }
