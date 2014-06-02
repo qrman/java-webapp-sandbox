@@ -7,11 +7,12 @@ project for rapid web application development
 Todo:
 
 * ~~JAX-RS~~
+* JAX-RS -> Exception mapping
 * ~~Guice~~
 * ~~jOOQ~~
 * ~~Liquibase~~
 * ~~Websocket~~
-* Websocket -> Guice DI 
+* ~~Websocket -> Guice DI~~
 * ~~Angular web app~~
 * authentication
 * authorization
