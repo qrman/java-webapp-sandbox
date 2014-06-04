@@ -17,14 +17,24 @@ public class UserFinder {
 
     public List<User> fetchAll() {
         return jooq.selectFrom(USER)
-            .orderBy(USER.SECOND_NAME.asc(), USER.FIRST_NAME.asc())
+            .orderBy(USER.USERNAME.asc(), USER.EMAIL.asc())
             .fetch()
             .map((UserRecord record) -> {
-            return User.builder()
+                return User.builder()
                 .id(record.getId())
-                .firstName(record.getFirstName())
-                .secondName(record.getSecondName())
+                .username(record.getUsername())
+                .email(record.getEmail())
                 .build();
-        });
+            });
+    }
+
+    public User findById(Long userId) {
+        UserRecord ur = jooq.fetchOne(USER, USER.ID.eq(userId));
+        return new User(ur.getId(), ur.getUsername(), ur.getEmail());
+    }
+
+    public User findByUsername(String username) {
+        UserRecord ur = jooq.fetchOne(USER, USER.USERNAME.eq(username));
+        return new User(ur.getId(), ur.getUsername(), ur.getEmail());
     }
 }

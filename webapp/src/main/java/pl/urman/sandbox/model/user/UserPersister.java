@@ -19,8 +19,8 @@ public class UserPersister {
 
     public Response addUser(User user) {
         UserRecord userRecord = jooq.newRecord(USER);
-        userRecord.setFirstName(user.getFirstName());
-        userRecord.setSecondName(user.getSecondName());
+        userRecord.setUsername(user.getUsername());
+        userRecord.setEmail(user.getEmail());
         userRecord.store();
         return Response.ok().build();
     }
