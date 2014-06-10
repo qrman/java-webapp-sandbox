@@ -18,6 +18,9 @@
         <constraints nullable="false"/>
       </column>
     </createTable>
+
+    <sql>ALTER SEQUENCE users_id_seq RESTART WITH 1001</sql>
+
   </changeSet>
 
 </databaseChangeLog>
