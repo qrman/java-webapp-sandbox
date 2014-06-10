@@ -1,16 +1,23 @@
 angular.module('sandbox-auth', [])
 
-.controller('AuthCtrl', function($scope, $http, apiEntrance, authService) {
+.controller('AuthCtrl', function($scope, $http, $route, apiEntrance, authService) {
   $scope.displayLoginForm = false;
 
   $scope.login = function() {
-
-    apiEntrance('auth').then(function(resource) {
+    apiEntrance('login').then(function(resource) {
       $http.post(resource, {username: $scope.username, password: $scope.password})
       .then(function() {
         authService.loginConfirmed();
       });
+    });
+  };
 
+  $scope.logout = function() {
+    apiEntrance('logout').then(function(resource) {
+      $http.post(resource)
+      .then(function() {
+        $route.reload();
+      });
     });
   };
 

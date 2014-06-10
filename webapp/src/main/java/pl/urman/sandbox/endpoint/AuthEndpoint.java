@@ -16,7 +16,8 @@ public class AuthEndpoint {
     private AuthService authService;
 
     @POST
-    public Response authenticate(UserLoginRequest loginRequest) {
+    @Path("login")
+    public Response login(UserLoginRequest loginRequest) {
 
         boolean authenicated = authService.authenticate(loginRequest);
 
@@ -25,5 +26,12 @@ public class AuthEndpoint {
         }
         return Response.status(Status.CONFLICT).build();
 
+    }
+
+    @POST
+    @Path("logout")
+    public Response logout() {
+        authService.logout();
+        return Response.ok().build();
     }
 }

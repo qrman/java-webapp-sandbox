@@ -4,11 +4,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import pl.urman.sandbox.db.tables.records.UserRecord;
+import static pl.urman.sandbox.db.Tables.USERS;
+import pl.urman.sandbox.db.tables.records.UsersRecord;
 
 import org.jooq.DSLContext;
-
-import static pl.urman.sandbox.db.Tables.USER;
 
 public class UserFinder {
 
@@ -16,10 +15,10 @@ public class UserFinder {
     DSLContext jooq;
 
     public List<User> fetchAll() {
-        return jooq.selectFrom(USER)
-            .orderBy(USER.USERNAME.asc(), USER.EMAIL.asc())
+        return jooq.selectFrom(USERS)
+            .orderBy(USERS.USERNAME.asc(), USERS.EMAIL.asc())
             .fetch()
-            .map((UserRecord record) -> {
+            .map((UsersRecord record) -> {
                 return User.builder()
                 .id(record.getId())
                 .username(record.getUsername())
@@ -29,12 +28,12 @@ public class UserFinder {
     }
 
     public User findById(Long userId) {
-        UserRecord ur = jooq.fetchOne(USER, USER.ID.eq(userId));
+        UsersRecord ur = jooq.fetchOne(USERS, USERS.ID.eq(userId));
         return new User(ur.getId(), ur.getUsername(), ur.getEmail());
     }
 
     public User findByUsername(String username) {
-        UserRecord ur = jooq.fetchOne(USER, USER.USERNAME.eq(username));
+        UsersRecord ur = jooq.fetchOne(USERS, USERS.USERNAME.eq(username));
         return new User(ur.getId(), ur.getUsername(), ur.getEmail());
     }
 }

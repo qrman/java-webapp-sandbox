@@ -5,8 +5,8 @@ import javax.ws.rs.core.Response;
 
 import org.jooq.DSLContext;
 
-import static pl.urman.sandbox.db.Tables.USER;
-import pl.urman.sandbox.db.tables.records.UserRecord;
+import static pl.urman.sandbox.db.Tables.USERS;
+import pl.urman.sandbox.db.tables.records.UsersRecord;
 
 /**
  *
@@ -18,7 +18,7 @@ public class UserPersister {
     private DSLContext jooq;
 
     public Response addUser(User user) {
-        UserRecord userRecord = jooq.newRecord(USER);
+        UsersRecord userRecord = jooq.newRecord(USERS);
         userRecord.setUsername(user.getUsername());
         userRecord.setEmail(user.getEmail());
         userRecord.store();
@@ -26,6 +26,6 @@ public class UserPersister {
     }
 
     public void deleteAll() {
-        jooq.delete(USER).execute();
+        jooq.delete(USERS).execute();
     }
 }
