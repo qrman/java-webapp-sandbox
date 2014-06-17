@@ -11,11 +11,11 @@
       <column name="id" type="bigint" autoIncrement="true">
         <constraints primaryKey="true" nullable="false"/>
       </column>
-      <column name="username" type="varchar(256)">
-        <constraints nullable="false"/>
+      <column name="username"  type="varchar(256)">
+        <constraints nullable="false" unique="true" />
       </column>
       <column name="email" type="varchar(256)">
-        <constraints nullable="false"/>
+        <constraints nullable="false"  unique="true" />
       </column>
     </createTable>
 
