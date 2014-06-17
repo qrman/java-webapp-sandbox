@@ -24,7 +24,7 @@ public class AuthEndpoint {
         if (authenicated) {
             return Response.ok().build();
         }
-        return Response.status(Status.CONFLICT).build();
+        return Response.status(Status.BAD_REQUEST).build();
 
     }
 

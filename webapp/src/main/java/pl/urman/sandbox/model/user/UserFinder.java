@@ -1,6 +1,7 @@
 package pl.urman.sandbox.model.user;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.inject.Inject;
 
@@ -32,8 +33,10 @@ public class UserFinder {
         return new User(ur.getId(), ur.getUsername(), ur.getEmail());
     }
 
-    public User findByUsername(String username) {
+    public Optional<User> findByUsername(String username) {
         UsersRecord ur = jooq.fetchOne(USERS, USERS.USERNAME.eq(username));
-        return new User(ur.getId(), ur.getUsername(), ur.getEmail());
+        return ur != null
+            ? Optional.of(new User(ur.getId(), ur.getUsername(), ur.getEmail()))
+            : Optional.<User>empty();
     }
 }

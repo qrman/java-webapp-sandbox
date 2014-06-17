@@ -1,5 +1,7 @@
 package pl.urman.sandbox.auth;
 
+import java.util.Optional;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -30,10 +32,10 @@ public class AuthService {
 
     public boolean authenticate(UserLoginRequest req) {
         HttpSession session = sessionProvider.get();
-        User user = userFinder.findByUsername(req.getUsername());
+        Optional<User> user = userFinder.findByUsername(req.getUsername());
 
-        if (user != null) {
-            session.setAttribute("userId", user.getId());
+        if (user.isPresent()) {
+            session.setAttribute("userId", user.get().getId());
             return true;
         }
         return false;
