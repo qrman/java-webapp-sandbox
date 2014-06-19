@@ -25,7 +25,7 @@ angular.module('sandbox-app')
   var ws, onMessage = {};
   apiEntrance('user-notify').then(function(wsResource) {
     ws = new WebSocket(wsResource);
-    ws.onmessage = function(evt) {
+    ws.onmessage = function() {
       onMessage();
     };
   });
@@ -62,7 +62,7 @@ angular.module('sandbox-app')
     userRepo.clear().then(function() {
       $scope.users = [];
     });
-  }
+  };
 
   $scope.fetchUsers = function() {
     userRepo.fetchAll().then(function(response) {

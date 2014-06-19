@@ -22,7 +22,7 @@ angular.module('sandbox-app', [
 
 angular.module('sandbox-api-entrance', [])
 .factory('apiEntrance', function($http, $q, apiURI) {
-  var resourcesUri = undefined;
+  var resourcesUri;
   return function(resource) {
     var deferred = $q.defer();
     if (resourcesUri) {

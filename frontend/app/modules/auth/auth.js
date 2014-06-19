@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('sandbox-auth', [])
 
 .controller('AuthCtrl', function($scope, $http, $route, apiEntrance, authService) {
@@ -30,7 +32,5 @@ angular.module('sandbox-auth', [])
     console.log('login loginConfirmed');
     $scope.displayLoginForm = false;
   });
-
-})
-
+});
 
