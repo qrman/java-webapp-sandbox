@@ -8,6 +8,7 @@
 
   <changeSet author="kurman" id="fixtures">
     <loadData tableName="users" separator=";" file="pl/urman/sandbox/db/fixtures/users.csv"/>
+    <loadData tableName="users_roles" separator=";" file="pl/urman/sandbox/db/fixtures/roles.csv"/>
   </changeSet>
 
 </databaseChangeLog>

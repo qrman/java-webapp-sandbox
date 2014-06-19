@@ -12,13 +12,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import pl.urman.sandbox.auth.annotation.UserLoggedIn;
+import pl.urman.sandbox.auth.annotation.RolesAllowed;
+import pl.urman.sandbox.model.user.Role;
 import pl.urman.sandbox.model.user.User;
 import pl.urman.sandbox.model.user.UserFinder;
 import pl.urman.sandbox.model.user.UserPersister;
 
-@UserLoggedIn
+
 @Path("/user")
+@RolesAllowed(roles = {Role.USER, Role.ADMIN})
 public class UserEndpoint {
 
     @Inject
@@ -29,6 +31,7 @@ public class UserEndpoint {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed(roles = {Role.USER, Role.ADMIN})
     public List<User> fetchAll() {
         return userFinder.fetchAll();
     }

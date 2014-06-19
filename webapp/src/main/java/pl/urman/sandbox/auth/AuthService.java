@@ -1,14 +1,13 @@
 package pl.urman.sandbox.auth;
 
+import com.google.inject.Provider;
 import java.util.Optional;
-
+import java.util.Set;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
-
+import pl.urman.sandbox.model.user.Role;
 import pl.urman.sandbox.model.user.User;
 import pl.urman.sandbox.model.user.UserFinder;
-
-import com.google.inject.Provider;
 
 public class AuthService {
 
@@ -18,11 +17,13 @@ public class AuthService {
     @Inject
     private Provider<HttpSession> sessionProvider;
 
-    public User currentUser() {
+    public Optional<User> currentUser() {
         HttpSession session = sessionProvider.get();
         Long userId = (Long) session.getAttribute("userId");
 
-        return userId != null ? userFinder.findById(userId) : null;
+        return userId != null
+                ? Optional.ofNullable(userFinder.findById(userId))
+                : Optional.empty();
     }
 
     public Long currentUserId() {
@@ -44,5 +45,17 @@ public class AuthService {
     public void logout() {
         HttpSession session = sessionProvider.get();
         session.invalidate();
+    }
+
+    boolean userInAnyRole(Set<Role> roles) {
+        Optional<User> currentUser = currentUser();
+        if (!currentUser.isPresent()) {
+            return false;
+        }
+
+        User user = currentUser.get();
+        roles.retainAll(user.getRoles());
+
+        return !roles.isEmpty();
     }
 }

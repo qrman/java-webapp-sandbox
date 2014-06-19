@@ -6,7 +6,8 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-  <include file="pl/urman/sandbox/db/user.001.changelog.xml"/>
+  <include file="pl/urman/sandbox/db/001.users.changelog.xml"/>
+  <include file="pl/urman/sandbox/db/002.roles.changelog.xml"/>
   <include file="pl/urman/sandbox/db/fixtures/fixtures.xml"/>
 
 </databaseChangeLog>

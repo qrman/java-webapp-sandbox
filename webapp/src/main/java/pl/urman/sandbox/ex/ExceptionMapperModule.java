@@ -10,6 +10,6 @@ public class ExceptionMapperModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        bind(UserNotAuthorizedExceptionMapper.class);
+        bind(UserNotInRoleExceptionMapper.class);
     }
 }
