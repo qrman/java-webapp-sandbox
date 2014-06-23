@@ -16,7 +16,7 @@ import pl.urman.sandbox.db.tables.records.UsersRolesRecord;
 public class UserFinder {
 
     @Inject
-    DSLContext jooq;
+    private DSLContext jooq;
 
     public List<User> fetchAll() {
         return jooq.selectFrom(USERS)

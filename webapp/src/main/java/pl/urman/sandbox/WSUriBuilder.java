@@ -7,10 +7,6 @@ import javax.ws.rs.core.UriBuilder;
 
 import com.google.inject.Provider;
 
-/**
- *
- * @author Krzysztof Urman <krzysztof.urman at espeo.pl>
- */
 public class WSUriBuilder {
 
     @Inject

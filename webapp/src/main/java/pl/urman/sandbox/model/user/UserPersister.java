@@ -8,10 +8,6 @@ import org.jooq.DSLContext;
 import static pl.urman.sandbox.db.Tables.USERS;
 import pl.urman.sandbox.db.tables.records.UsersRecord;
 
-/**
- *
- * @author Krzysztof Urman <krzysztof.urman at espeo.pl>
- */
 public class UserPersister {
 
     @Inject

@@ -13,5 +13,4 @@ import pl.urman.sandbox.model.user.Role;
 public @interface RolesAllowed {
 
     Role[] roles() default {Role.USER};
-
 }

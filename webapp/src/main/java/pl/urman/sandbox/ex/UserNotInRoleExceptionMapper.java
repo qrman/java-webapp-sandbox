@@ -7,10 +7,6 @@ import javax.ws.rs.ext.Provider;
 import pl.urman.sandbox.auth.UserNotInRoleException;
 import pl.urman.sandbox.model.user.Role;
 
-/**
- *
- * @author Krzysztof Urman <krzysztof.urman at espeo.pl>
- */
 @Provider
 public class UserNotInRoleExceptionMapper implements ExceptionMapper<UserNotInRoleException> {
 
@@ -20,6 +16,5 @@ public class UserNotInRoleExceptionMapper implements ExceptionMapper<UserNotInRo
             return Response.status(Response.Status.UNAUTHORIZED).entity(e.getMessage()).build();
         }
         return Response.status(Response.Status.FORBIDDEN).entity(e.getMessage()).build();
-
     }
 }

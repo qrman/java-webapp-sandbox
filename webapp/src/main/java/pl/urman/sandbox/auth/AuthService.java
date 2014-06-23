@@ -12,7 +12,7 @@ import pl.urman.sandbox.model.user.UserFinder;
 public class AuthService {
 
     @Inject
-    UserFinder userFinder;
+    private UserFinder userFinder;
 
     @Inject
     private Provider<HttpSession> sessionProvider;

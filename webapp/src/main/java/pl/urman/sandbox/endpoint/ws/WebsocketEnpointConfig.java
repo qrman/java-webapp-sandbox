@@ -6,10 +6,6 @@ import pl.urman.sandbox.guice.SandboxServletContextListener;
 
 import com.google.inject.Injector;
 
-/**
- *
- * @author Krzysztof Urman <krzysztof.urman at espeo.pl>
- */
 public class WebsocketEnpointConfig extends ServerEndpointConfig.Configurator {
 
     @Override
