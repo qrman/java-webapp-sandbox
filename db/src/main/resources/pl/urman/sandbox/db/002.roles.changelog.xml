@@ -12,7 +12,13 @@
       <column name="roles" type="varchar(128)"/>
     </createTable>
 
-    <addForeignKeyConstraint baseTableName="users_roles" baseColumnNames="users" constraintName="FK_users_roles_users" referencedTableName="users" referencedColumnNames="id"/>
+    <addForeignKeyConstraint
+      baseTableName="users_roles"
+      baseColumnNames="users"
+      constraintName="FK_users_roles_users"
+      deleteCascade="true"
+      referencedTableName="users"
+      referencedColumnNames="id"/>
 
   </changeSet>
 
