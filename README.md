@@ -14,8 +14,9 @@ Todo:
 * ~~Websocket~~
 * ~~Websocket -> Guice DI~~
 * ~~Angular web app~~
-* authentication
-* authorization
+* ~~authentication~~
+* ~~authorization~~
 * integration tests
 * e2e tests (cucumber stories?)
 * Properties management
+* i18n
