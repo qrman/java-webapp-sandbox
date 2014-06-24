@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-public class DataSourceProvider implements Provider<DataSource> {
+public class TestDataSourceProvider implements Provider<DataSource> {
 
     @Override
     public DataSource get() {
@@ -16,7 +16,7 @@ public class DataSourceProvider implements Provider<DataSource> {
         props.setProperty("dataSourceClassName", "org.postgresql.ds.PGSimpleDataSource");
         props.setProperty("dataSource.user", "sandbox");
         props.setProperty("dataSource.password", "sandbox");
-        props.setProperty("dataSource.databaseName", "sandbox");
+        props.setProperty("dataSource.databaseName", "sandbox_test");
 
         HikariConfig config = new HikariConfig(props);
         return new HikariDataSource(config);

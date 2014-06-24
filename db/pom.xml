@@ -44,7 +44,7 @@
 
   <build>
     <plugins>
-	 <plugin>
+      <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
         <inherited>true</inherited>
@@ -60,11 +60,26 @@
         <version>3.1.1</version>
         <executions>
           <execution>
+            <id>main-db</id>
             <phase>process-resources</phase>
             <configuration>
               <changeLogFile>src/main/resources/pl/urman/sandbox/db/master.changelog.xml</changeLogFile>
               <driver>org.postgresql.Driver</driver>
               <url>jdbc:postgresql://localhost:5432/sandbox</url>
+              <username>sandbox</username>
+              <password>sandbox</password>
+            </configuration>
+            <goals>
+              <goal>update</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>test-db</id>
+            <phase>process-resources</phase>
+            <configuration>
+              <changeLogFile>src/main/resources/pl/urman/sandbox/db/master.changelog.xml</changeLogFile>
+              <driver>org.postgresql.Driver</driver>
+              <url>jdbc:postgresql://localhost:5432/sandbox_test</url>
               <username>sandbox</username>
               <password>sandbox</password>
             </configuration>
@@ -116,12 +131,6 @@
 
           <!-- Generator parameters -->
           <generator>
-
-            <!-- jOOQ will generate DAO's classes -->
-            <generate>
-              <daos>true</daos>
-            </generate>
-
             <name>org.jooq.util.DefaultGenerator</name>
             <database>
               <name>org.jooq.util.postgres.PostgresDatabase</name>
