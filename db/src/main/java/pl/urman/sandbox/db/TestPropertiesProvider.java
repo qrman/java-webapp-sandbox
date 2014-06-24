@@ -3,22 +3,16 @@ package pl.urman.sandbox.db;
 import java.util.Properties;
 
 import javax.inject.Provider;
-import javax.sql.DataSource;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-
-public class TestDataSourceProvider implements Provider<DataSource> {
+public class TestPropertiesProvider implements Provider<Properties> {
 
     @Override
-    public DataSource get() {
+    public Properties get() {
         Properties props = new Properties();
         props.setProperty("dataSourceClassName", "org.postgresql.ds.PGSimpleDataSource");
         props.setProperty("dataSource.user", "sandbox");
         props.setProperty("dataSource.password", "sandbox");
         props.setProperty("dataSource.databaseName", "sandbox_test");
-
-        HikariConfig config = new HikariConfig(props);
-        return new HikariDataSource(config);
+        return props;
     }
 }

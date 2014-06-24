@@ -1,18 +1,20 @@
 
 package pl.urman.sandbox.guice;
 
-import pl.urman.sandbox.db.guice.TestDbModule;
+import pl.urman.sandbox.db.guice.DbMode;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.junit.Before;
+
+import pl.urman.sandbox.db.guice.DbModule;
 
 public class SandboxIntegrationTest {
 
     @Before
     public void prepareEnvironment() {
         Injector injector = Guice.createInjector(
-                new TestDbModule());
+                new DbModule(DbMode.TEST));
         injector.injectMembers(this);
     }
 }
