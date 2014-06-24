@@ -1,17 +1,15 @@
 package pl.urman.sandbox.model.user;
 
-import java.util.ArrayList;
+import pl.urman.sandbox.db.model.Role;
 import java.util.List;
 import java.util.Optional;
 import javax.inject.Inject;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
-import org.jooq.Result;
 import static pl.urman.sandbox.db.Tables.USERS;
 import static pl.urman.sandbox.db.Tables.USERS_ROLES;
 import pl.urman.sandbox.db.tables.records.UsersRecord;
-import pl.urman.sandbox.db.tables.records.UsersRolesRecord;
 
 public class UserFinder {
 
@@ -42,12 +40,9 @@ public class UserFinder {
 
         @Override
         public User map(Record ur) {
-            Result<UsersRolesRecord> rolesRecords = jooq.selectFrom(USERS_ROLES).where(USERS_ROLES.USERS.eq(ur.getValue(USERS.ID))).fetch();
-            List<Role> roles = new ArrayList<>();
-            for (UsersRolesRecord usersRolesRecord : rolesRecords) {
-                String r = usersRolesRecord.getRoles();
-                roles.add(Role.valueOf(r));
-            }
+            List<Role> roles = jooq.select(USERS_ROLES.ROLES)
+                    .from(USERS_ROLES).where(USERS_ROLES.USERS.eq(ur.getValue(USERS.ID)))
+                    .fetch(USERS_ROLES.ROLES);
             return User.builder()
                     .id(ur.getValue(USERS.ID))
                     .username(ur.getValue(USERS.USERNAME))

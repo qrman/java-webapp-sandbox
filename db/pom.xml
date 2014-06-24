@@ -134,10 +134,37 @@
             <name>org.jooq.util.DefaultGenerator</name>
             <database>
               <name>org.jooq.util.postgres.PostgresDatabase</name>
-              <includes>.*</includes>
-              <excludes></excludes>
               <inputSchema>public</inputSchema>
+
+              <customTypes>
+                <customType>
+                  <name>org.joda.time.DateTime</name>
+                  <converter>pl.urman.sandbox.db.converter.DateTimeConverter</converter>
+                </customType>
+                <customType>
+                  <name>pl.urman.sandbox.db.model.Role</name>
+                  <converter>pl.urman.sandbox.db.converter.RoleConverter</converter>
+                </customType>
+              </customTypes>
+              <forcedTypes>
+                <forcedType>
+                  <name>org.joda.time.DateTime</name>
+                  <expression>.*\.(create_date)</expression>
+                </forcedType>
+                <forcedType>
+                  <name>pl.urman.sandbox.db.model.Role</name>
+                  <expression>.*\.(roles)</expression>
+                </forcedType>
+              </forcedTypes>
             </database>
+            <generate>
+              <relations>true</relations>
+              <deprecated>false</deprecated>
+              <instanceFields>true</instanceFields>
+              <generatedAnnotation>true</generatedAnnotation>
+              <jpaAnnotations>false</jpaAnnotations>
+              <daos>false</daos>
+            </generate>
             <target>
               <packageName>pl.urman.sandbox.db</packageName>
               <directory>target/generated-sources/</directory>

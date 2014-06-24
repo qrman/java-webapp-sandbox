@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import pl.urman.sandbox.auth.annotation.RolesAllowed;
-import pl.urman.sandbox.model.user.Role;
+import pl.urman.sandbox.db.model.Role;
 import pl.urman.sandbox.model.user.User;
 import pl.urman.sandbox.model.user.UserDeleter;
 import pl.urman.sandbox.model.user.UserFinder;

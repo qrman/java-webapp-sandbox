@@ -5,7 +5,7 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 import pl.urman.sandbox.auth.UserNotInRoleException;
-import pl.urman.sandbox.model.user.Role;
+import pl.urman.sandbox.db.model.Role;
 
 @Provider
 public class UserNotInRoleExceptionMapper implements ExceptionMapper<UserNotInRoleException> {

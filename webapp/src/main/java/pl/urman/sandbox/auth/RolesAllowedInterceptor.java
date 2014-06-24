@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import pl.urman.sandbox.auth.annotation.RolesAllowed;
-import pl.urman.sandbox.model.user.Role;
+import pl.urman.sandbox.db.model.Role;
 
 /**
  *

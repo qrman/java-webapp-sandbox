@@ -17,6 +17,9 @@
       <column name="email" type="varchar(256)">
         <constraints nullable="false"  unique="true" />
       </column>
+      <column name="create_date" type="timestamp">
+        <constraints nullable="false" />
+      </column>
     </createTable>
 
     <sql>ALTER SEQUENCE users_id_seq RESTART WITH 1001</sql>

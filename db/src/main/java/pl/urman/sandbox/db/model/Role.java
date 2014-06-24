@@ -1,4 +1,4 @@
-package pl.urman.sandbox.model.user;
+package pl.urman.sandbox.db.model;
 
 public enum Role {
 

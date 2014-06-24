@@ -1,5 +1,6 @@
 package pl.urman.sandbox.model.user;
 
+import pl.urman.sandbox.db.model.Role;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;

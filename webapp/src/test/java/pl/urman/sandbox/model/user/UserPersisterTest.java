@@ -1,12 +1,14 @@
 package pl.urman.sandbox.model.user;
 
+import pl.urman.sandbox.db.model.Role;
 import pl.urman.sandbox.db.ex.KeyViolationException;
 import pl.urman.sandbox.guice.SandboxIntegrationTest;
 
 import com.google.inject.Inject;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import org.hamcrest.MatcherAssert;
+import static org.hamcrest.MatcherAssert.assertThat;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 public class UserPersisterTest extends SandboxIntegrationTest {
@@ -28,7 +30,8 @@ public class UserPersisterTest extends SandboxIntegrationTest {
 
         //check
         User actual = userFinder.findById(userId);
-        MatcherAssert.assertThat("user was store", actual.getUsername(), is(equalTo("john")));
+        assertThat("user was stored", actual.getUsername(), is(equalTo("john")));
+        assertThat("user is in USER role", actual.getRoles(), Matchers.contains(Role.USER));
 
     }
 

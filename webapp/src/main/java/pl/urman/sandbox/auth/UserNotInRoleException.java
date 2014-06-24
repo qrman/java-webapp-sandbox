@@ -2,7 +2,7 @@ package pl.urman.sandbox.auth;
 
 import java.util.Set;
 import lombok.Getter;
-import pl.urman.sandbox.model.user.Role;
+import pl.urman.sandbox.db.model.Role;
 
 public class UserNotInRoleException extends Exception {
 

@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.Set;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
-import pl.urman.sandbox.model.user.Role;
+import pl.urman.sandbox.db.model.Role;
 import pl.urman.sandbox.model.user.User;
 import pl.urman.sandbox.model.user.UserFinder;
 

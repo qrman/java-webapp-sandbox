@@ -1,2 +1,2 @@
-id;username;email
-1;user;user@user.com
+id;username;email;create_date
+1;user;user@user.com;2005-10-30 T 10:45 UTC
