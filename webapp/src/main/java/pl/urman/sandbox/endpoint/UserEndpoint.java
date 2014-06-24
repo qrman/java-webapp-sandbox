@@ -15,9 +15,9 @@ import javax.ws.rs.core.Response;
 import pl.urman.sandbox.auth.annotation.RolesAllowed;
 import pl.urman.sandbox.model.user.Role;
 import pl.urman.sandbox.model.user.User;
+import pl.urman.sandbox.model.user.UserDeleter;
 import pl.urman.sandbox.model.user.UserFinder;
 import pl.urman.sandbox.model.user.UserPersister;
-
 
 @Path("/user")
 @RolesAllowed(roles = {Role.USER, Role.ADMIN})
@@ -29,6 +29,9 @@ public class UserEndpoint {
     @Inject
     private UserPersister userPersister;
 
+    @Inject
+    private UserDeleter userDeleter;
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed(roles = {Role.USER, Role.ADMIN})
@@ -38,13 +41,14 @@ public class UserEndpoint {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public void addUser(User user) {
+    public Response addUser(User user) {
         userPersister.addUser(user);
+        return Response.ok().build();
     }
 
     @DELETE
     public Response deleteAll() {
-        userPersister.deleteAll();
+        userDeleter.deleteAll();
         return Response.ok().build();
     }
 }

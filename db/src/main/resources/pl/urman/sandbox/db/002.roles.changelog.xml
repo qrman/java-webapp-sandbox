@@ -12,6 +12,8 @@
       <column name="roles" type="varchar(128)"/>
     </createTable>
 
+    <addPrimaryKey tableName="users_roles" columnNames="users,roles"></addPrimaryKey>
+
     <addForeignKeyConstraint
       baseTableName="users_roles"
       baseColumnNames="users"
