@@ -7,7 +7,6 @@ import com.google.inject.Inject;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import org.hamcrest.MatcherAssert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class UserPersisterTest extends SandboxIntegrationTest {
@@ -16,15 +15,7 @@ public class UserPersisterTest extends SandboxIntegrationTest {
     private UserPersister userPersister;
 
     @Inject
-    private UserDeleter userDeleter;
-
-    @Inject
     private UserFinder userFinder;
-
-    @Before
-    public void clearUsers() {
-        userDeleter.deleteAll();
-    }
 
     @Test
     public void will_persist_new_user() {
@@ -50,11 +41,10 @@ public class UserPersisterTest extends SandboxIntegrationTest {
             .email("john@email.com")
             .build());
 
-        //excute
+        //excute - expect to raise error
         userPersister.addUser(User.builder()
             .username("john")
             .email("other@email.com")
             .build());
     }
-
 }

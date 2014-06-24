@@ -1,6 +1,5 @@
-package pl.urman.sandbox.db;
+package pl.urman.sandbox.db.ex;
 
-import pl.urman.sandbox.db.ex.KeyViolationException;
 
 import org.jooq.ExecuteContext;
 import org.jooq.exception.DataAccessException;

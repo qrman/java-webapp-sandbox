@@ -1,5 +1,7 @@
 package pl.urman.sandbox.db;
 
+import pl.urman.sandbox.db.ex.JooqExceptionMapper;
+
 import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
