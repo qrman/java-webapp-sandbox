@@ -64,10 +64,10 @@
             <phase>process-resources</phase>
             <configuration>
               <changeLogFile>src/main/resources/pl/urman/sandbox/db/master.changelog.xml</changeLogFile>
-              <driver>org.postgresql.Driver</driver>
-              <url>jdbc:postgresql://localhost:5432/sandbox</url>
-              <username>sandbox</username>
-              <password>sandbox</password>
+              <driver>${db.driver}</driver>
+              <url>${db.jdbc.url}</url>
+              <username>${db.username}</username>
+              <password>${db.password}</password>
             </configuration>
             <goals>
               <goal>update</goal>
@@ -78,10 +78,10 @@
             <phase>process-resources</phase>
             <configuration>
               <changeLogFile>src/main/resources/pl/urman/sandbox/db/master.changelog.xml</changeLogFile>
-              <driver>org.postgresql.Driver</driver>
-              <url>jdbc:postgresql://localhost:5432/sandbox_test</url>
-              <username>sandbox</username>
-              <password>sandbox</password>
+              <driver>${db.driver}</driver>
+              <url>${db.test.jdbc.url}</url>
+              <username>${db.test.username}</username>
+              <password>${db.test.password}</password>
             </configuration>
             <goals>
               <goal>update</goal>
