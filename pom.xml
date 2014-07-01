@@ -58,7 +58,7 @@
             </goals>
             <configuration>
               <files>
-                <file>${project.parent.basedir}/dev.properties</file>
+                <file>${project.parent.basedir}/webapp/src/main/resources/pl/urman/sandbox/guice/dev.properties</file>
               </files>
               <quiet>true</quiet>
             </configuration>

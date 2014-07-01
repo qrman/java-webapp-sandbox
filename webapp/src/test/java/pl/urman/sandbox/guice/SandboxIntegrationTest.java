@@ -18,7 +18,8 @@ public class SandboxIntegrationTest {
     @Before
     public void prepareEnvironment() {
         Injector injector = Guice.createInjector(
-            new DbModule(DbMode.TEST));
+                new PropertiesModule(DbMode.TEST),
+                new DbModule());
         injector.injectMembers(this);
     }
 

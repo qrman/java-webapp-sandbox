@@ -18,7 +18,8 @@ public class WebAppModule extends ServletModule {
 
     @Override
     protected void configureServlets() {
-        install(new DbModule(DbMode.MAIN));
+        install(new PropertiesModule(DbMode.MAIN));
+        install(new DbModule());
         install(new AuthModule());
         install(new ExceptionMapperModule());
         bind(UserEndpoint.class);
