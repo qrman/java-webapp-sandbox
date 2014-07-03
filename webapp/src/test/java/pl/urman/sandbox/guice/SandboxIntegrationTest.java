@@ -1,7 +1,7 @@
 package pl.urman.sandbox.guice;
 
 import pl.urman.sandbox.db.DBCleaner;
-import pl.urman.sandbox.db.guice.DbMode;
+import pl.urman.sandbox.db.guice.Environmet;
 import pl.urman.sandbox.db.guice.DbModule;
 
 import com.google.inject.Guice;
@@ -18,7 +18,7 @@ public class SandboxIntegrationTest {
     @Before
     public void prepareEnvironment() {
         Injector injector = Guice.createInjector(
-                new PropertiesModule(DbMode.TEST),
+                new PropertiesModule(Environmet.TEST),
                 new DbModule());
         injector.injectMembers(this);
     }

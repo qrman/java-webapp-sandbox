@@ -4,7 +4,6 @@ import javax.inject.Named;
 
 import pl.urman.sandbox.ApiUriBuilder;
 import pl.urman.sandbox.auth.AuthModule;
-import pl.urman.sandbox.db.guice.DbMode;
 import pl.urman.sandbox.db.guice.DbModule;
 import pl.urman.sandbox.endpoint.ApiEntranceEndpoint;
 import pl.urman.sandbox.endpoint.AuthEndpoint;
@@ -18,7 +17,7 @@ public class WebAppModule extends ServletModule {
 
     @Override
     protected void configureServlets() {
-        install(new PropertiesModule(DbMode.MAIN));
+        install(new PropertiesModule());
         install(new DbModule());
         install(new AuthModule());
         install(new ExceptionMapperModule());
